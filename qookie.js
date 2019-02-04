@@ -32,10 +32,8 @@ function addButton(mutations) {
 		} else {
       api.storage.sync.get((result) => {
         const autoDiscardEnabled = result.auto_discard_enabled || false;
-        const autoDiscardDelay = (result.auto_discard_delay || 5) * 1000;
         if (autoDiscardEnabled) {
-          new Promise((resolve) => setTimeout(resolve, autoDiscardDelay))
-          .then(() => newButton.click());
+          newButton.click();
         }
       });
     }
